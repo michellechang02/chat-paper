@@ -112,7 +112,7 @@ function App() {
   }, [])
 
   return (
-    <Box mx={5} mt={10} mb={10} >
+    <Box mx={5} mt={10} mb={10} className="eb-garamond">
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={6}>
         {/* Paper Section */}
         <Paper textContent={textContent} highlightedSections={highlightedSections} />
@@ -129,11 +129,21 @@ function App() {
       </Grid>
 
       {/* Footer */}
-      <Box mt={10} textAlign="center" fontSize="sm" color="white">
-        <Text>
-          Made with <span role="img" aria-label="heart">❤️</span> by Michelle Chang
-        </Text>
-      </Box>
+      <Box
+          as="footer"
+          mt={10}
+          py={4}
+          textAlign="center"
+          fontSize="md"
+          color="white"
+        >
+          <Text fontWeight="bold" fontSize="lg" color="black">
+            mɪˈʃɛl
+          </Text>
+          <Text fontSize="sm" color="black">
+            © {new Date().getFullYear()} All rights reserved.
+          </Text>
+        </Box>
     </Box>
   );
 }

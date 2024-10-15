@@ -27,7 +27,7 @@ function Chatbot({
   return (
     <GridItem mt={10}>
     <Box borderWidth="1px" borderRadius="lg" p={4} maxHeight="100vh" display="flex" flexDirection="column">
-      <Text fontSize="lg" mb={2} fontWeight="bold" textAlign="center">ChatPaper 🤖</Text>
+      <Text fontSize="3xl" mb={2} fontWeight="bold" textAlign="center">ChatPaper</Text>
       <VStack
         spacing={3}
         align="stretch"
