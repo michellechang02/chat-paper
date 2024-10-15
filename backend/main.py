@@ -32,10 +32,9 @@ You are a helpful assistant. In addition to answering the user's message, recomm
 section2-1, section2-2, section2-3, section2-4, section2-5, section3-1, section3-2, section3-3, section3-4, section3-5, 
 section4-1, section4-2, section4-3, section4-4, section4-5, Abstract].
 
-Answer the user's question first using the text, without considering the recommendations.
-Then, make the recommendations based on the user's query. Provide in string JSON format 
-the user's answer as "user_answer" and the recommended 5 sections as "five_sections"
-in your response.
+
+Provide in string JSON format the user's answer as "user_answer" by answering the user's question first using the text in 40 words or less, without considering the recommendations, 
+and then "five_sections" as a list of 5 sections you recommend the user to look at.
 """
 
 # Define a Pydantic model to parse the incoming JSON request body
@@ -55,28 +54,34 @@ sections = [
 
 # Endpoint for sending a message to the OpenAI API
 @app.post("/send-message")
+@app.post("/send-message")
 async def send_chatgpt_message(message: UserMessage):
     current_directory = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_directory, "bionicreading.txt")
     try:
+        # Read the contents of the file
+        with open(file_path, 'r') as file:
+            file_content = file.read()
+
         # Make the API request to OpenAI
         response = openai.ChatCompletion.create(
             model="gpt-4",  # You can also use "gpt-3.5-turbo"
             messages=[
                 {"role": "system", "content": system_instructions},
-                {"role": "text", "content": file_path},
+                {"role": "system", "content": file_content},  # Include file content in the system message
                 {"role": "user", "content": message.user_message + "\nPlease recommend 5 sections to look at."},
             ],
             max_tokens=150
         )
 
         # Extract the response content
-        output = response.choices[0].message["content"].strip()
+        output = response.choices[0]["message"]["content"].strip()
 
-        print(output)
+        print("JSON OUTPUT" + output)
         
         # Extract the user's answer and the recommended 5 sections
         output_dict = json.loads(output)
+        print(output_dict)
 
         return JSONResponse(content={
             "user_answer": output_dict['user_answer'],

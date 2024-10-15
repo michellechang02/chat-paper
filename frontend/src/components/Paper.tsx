@@ -43,7 +43,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
     <GridItem mt={10} className="eb-garamond-custom-component">
       <Box
         borderWidth="1px"
-        borderRadius="lg"
+        borderRadius="3xl"
         p={10}
         maxHeight="100vh" // Ensure it doesn't exceed the viewport height
         overflowY="auto"
@@ -64,7 +64,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
               mt={4}
               borderRadius="md"
             >
-              <Text fontSize="lg" mt={4} fontWeight="bold">
+              <Text fontSize="3xl" mt={4} fontWeight="bold">
                 Abstract
               </Text>
               <Text id="Abstract" mt={4}>It has recently been claimed that presenting text with the first half of each word printed in bold (<strong>a</strong>s <strong>i</strong>s <strong>d</strong>one <strong>i</strong>n <strong>t</strong>his <strong>e</strong>xample), so-called Bionic Reading, facilitates reading. However, empirical tests of this claim are lacking, and theoretically one might expect a cost rather than a benefit. Here I tested participants' reading speed of 100 paragraphs that were presented either in 'Bionic' or in normal font. Statistical analyses revealed no significant difference in reading times between Bionic and normal reading. I conclude that Bionic Reading does not facilitate reading.</Text>
@@ -72,7 +72,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
             </Box>
 
             {/* Introduction Sections */}
-            <Text p={2} mt={4} fontSize="lg" fontWeight="bold">1. Introduction</Text>
+            <Text p={2} mt={4} fontSize="3xl" fontWeight="bold">1. Introduction</Text>
             {Object.keys(textContent).map((key) => {
               if (key.startsWith('intro')) {
                 return (
@@ -108,7 +108,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
             })}
 
 
-            <Text p={2} mt={4} fontSize="lg" fontWeight="bold">2. Methods</Text>
+            <Text p={2} mt={4} fontSize="3xl" fontWeight="bold">2. Methods</Text>
             {Object.keys(textContent).map((key) => {
               if (key.startsWith('section2') && !key.startsWith('section2-4') &&
               key !== 'section ids') {
@@ -143,7 +143,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
               return null;
             })}
 
-            <Text p={2} mt={4} fontSize="lg" fontWeight="bold">3. Results</Text>
+            <Text p={2} mt={4} fontSize="3xl" fontWeight="bold">3. Results</Text>
             {Object.keys(textContent).map((key) => {
               if (key.startsWith('section3') && !key.startsWith('section3-3') && 
               key !== 'section ids') {
@@ -178,7 +178,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
               return null;
             })}
 
-            <Text p={2} mt={4} fontSize="lg" fontWeight="bold">4. Discussion</Text>
+            <Text p={2} mt={4} fontSize="3xl" fontWeight="bold">4. Discussion</Text>
             {Object.keys(textContent).map((key) => {
               if (key.startsWith('section4') && key !== 'section ids') {
                 return (

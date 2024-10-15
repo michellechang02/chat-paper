@@ -1,5 +1,5 @@
 import { Box, GridItem, Input, Text, VStack, HStack, IconButton, Button} from '@chakra-ui/react'
-import { Send } from 'react-feather';
+import { Send, FileText } from 'react-feather';
 
 interface ChatMessage {
     sender: string;
@@ -27,7 +27,11 @@ function Chatbot({
   return (
     <GridItem mt={10}>
     <Box borderWidth="1px" borderRadius="lg" p={4} maxHeight="100vh" display="flex" flexDirection="column">
+        <HStack alignSelf="center">
+        
       <Text fontSize="3xl" mb={2} fontWeight="bold" textAlign="center">ChatPaper</Text>
+      <FileText size="30px"/>
+      </HStack>
       <VStack
         spacing={3}
         align="stretch"
@@ -80,8 +84,10 @@ function Chatbot({
         <HStack mb={2}>
         <Input
           placeholder="Type a message..."
+          fontSize="xl"
           value={userMessage}
           onChange={(e) => setUserMessage(e.target.value)}
+          p={2}
         />
         <IconButton 
         aria-label='Send Message'
