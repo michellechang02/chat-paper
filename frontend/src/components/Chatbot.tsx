@@ -1,5 +1,5 @@
 import { Box, GridItem, Input, Text, VStack, HStack, IconButton, Button} from '@chakra-ui/react'
-import { Send, FileText } from 'react-feather';
+import { Send } from 'react-feather';
 
 interface ChatMessage {
     sender: string;
