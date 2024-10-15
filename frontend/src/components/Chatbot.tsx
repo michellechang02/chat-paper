@@ -24,13 +24,14 @@ function Chatbot({
     isLoading,
     handleClick
 }: ChatBotProps) {
+
+    
   return (
     <GridItem mt={10}>
     <Box borderWidth="1px" borderRadius="lg" p={4} maxHeight="100vh" display="flex" flexDirection="column">
         <HStack alignSelf="center">
         
       <Text fontSize="3xl" mb={2} fontWeight="bold" textAlign="center">ChatPaper</Text>
-      <FileText size="30px"/>
       </HStack>
       <VStack
         spacing={3}
@@ -48,7 +49,7 @@ function Chatbot({
                 maxW="80%" 
                 p={3}
                 borderRadius="lg" 
-                bg={msg.sender === 'User' ? 'teal.100' : 'gray.100'}
+                bg={msg.sender === 'User' ? 'blue.100' : 'gray.100'}
                 mb={4}
             >
                 <Text fontWeight={msg.sender === 'User' ? 'bold' : 'normal'}>
@@ -60,12 +61,12 @@ function Chatbot({
                     <Button 
                         key={sectionIndex}
                         variant="ghost" 
-                        colorScheme="teal"
+                        colorScheme="blue"
                         onClick={() => handleClick(section)}
                         sx={{
                         _focus: {
                             outline: '2px solid',
-                            outlineColor: 'teal.500'
+                            outlineColor: 'blue.500'
                         }
                         }}
                     >
@@ -92,7 +93,7 @@ function Chatbot({
         <IconButton 
         aria-label='Send Message'
         icon={<Send />}
-        onClick={handleSendMessage} colorScheme="teal"
+        onClick={handleSendMessage} colorScheme="blue"
         isLoading={isLoading}>
           Send
         </IconButton>

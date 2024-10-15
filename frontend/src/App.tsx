@@ -1,5 +1,5 @@
 import { Box, Grid, Text } from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 import Chatbot from './components/Chatbot';
@@ -93,7 +93,7 @@ function App() {
             setChatMessages(prevMessages => [
                 ...prevMessages,
                 { sender: 'User', text: userMessage, highlightedSections: null },
-                { sender: 'Bot', text: user_answer, highlightedSections: five_sections }
+                { sender: 'ChatPaper', text: user_answer, highlightedSections: five_sections }
             ]);
             setIsLoading(false); 
         })
@@ -110,6 +110,8 @@ function App() {
   useEffect(() => {
     getTextContent();
   }, [])
+
+
 
   return (
     <Box mx={5} mt={10} mb={10} className="eb-garamond">

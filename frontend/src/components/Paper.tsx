@@ -59,7 +59,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
           <>
             {/* Abstract Section */}
             <Box
-              bg={highlightedSections?.includes('Abstract') ? 'teal.100' : 'transparent'}
+              bg={highlightedSections?.includes('Abstract') ? 'blue.100' : 'transparent'}
               p={2}
               mt={4}
               borderRadius="md"
@@ -78,7 +78,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
                 return (
                   <Box
                     key={key}
-                    bg={highlightedSections?.includes(key)? 'teal.100' : 'transparent'}
+                    bg={highlightedSections?.includes(key)? 'blue.100' : 'transparent'}
                     p={2}
                     mt={4}
                     borderRadius="md"
@@ -95,7 +95,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
                 return (
                   <Box
                     key={key}
-                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                    bg={highlightedSections?.includes(key) ? 'blue.100' : 'transparent'}
                     p={2}
                     mt={4}
                     borderRadius="md"
@@ -115,7 +115,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
                 return (
                   <Box
                     key={key}
-                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                    bg={highlightedSections?.includes(key) ? 'blue.100' : 'transparent'}
                     p={2}
                     mt={4}
                     borderRadius="md"
@@ -131,7 +131,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
                         is exaggerated here for the sake of visibility.</Text>
                 <Box
                     key={key}
-                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                    bg={highlightedSections?.includes(key) ? 'blue.100' : 'transparent'}
                     mt={4}
                     borderRadius="md"
                   >
@@ -150,7 +150,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
                 return (
                   <Box
                     key={key}
-                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                    bg={highlightedSections?.includes(key) ? 'blue.100' : 'transparent'}
                     p={2}
                     mt={4}
                     borderRadius="md"
@@ -166,7 +166,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
                     in Bionic and normal reading, respectively. Error bars indicate SEs.</Text>
                     <Box
                       key={key}
-                      bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                      bg={highlightedSections?.includes(key) ? 'blue.100' : 'transparent'}
                       mt={4}
                       borderRadius="md"
                     >
@@ -184,7 +184,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
                 return (
                   <Box
                     key={key}
-                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                    bg={highlightedSections?.includes(key) ? 'blue.100' : 'transparent'}
                     p={2}
                     mt={4}
                     borderRadius="md"
