@@ -1,11 +1,19 @@
 import { Box, Grid, GridItem, Button, Text, Input, VStack } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
+interface ChatMessage {
+  sender: string;
+  text: string;
+}
+
+
+
 function App() {
-  const [highlightedSection, setHighlightedSection] = useState('');
-  const [userMessage, setUserMessage] = useState('');
-  const [chatMessages, setChatMessages] = useState([]);
+  const [highlightedSection, setHighlightedSection] = useState<string | null>(null);
+  const [userMessage, setUserMessage] = useState<string>('');
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
 
   const highlightSection = (sectionId: string) => {
     setHighlightedSection(sectionId);
@@ -13,11 +21,23 @@ function App() {
 
   const handleSendMessage = () => {
     if (userMessage.trim()) {
-      const botResponse = `Bot: I see you said "${userMessage}"`; // Simple response logic for the example
-      setChatMessages([...chatMessages, { sender: 'User', text: userMessage }, { sender: 'Bot', text: botResponse }]);
+      const botResponse = `Bot: I see you said "${userMessage}"`; 
+      // Update chatMessages with the new user and bot messages
+      setChatMessages([
+        ...chatMessages,
+        { sender: 'User', text: userMessage },
+        { sender: 'Bot', text: botResponse }
+      ]);
+
+
+      // Clear the user message input
       setUserMessage('');
     }
   };
+
+  useEffect(() => {
+    
+  }, [])
 
   return (
     <Box p={4}>
