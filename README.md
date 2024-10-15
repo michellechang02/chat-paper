@@ -9,6 +9,10 @@ cd frontend
 npm install
 npm run dev
 ```
+Then, navigate to [http://localhost:5173/chat-paper/](http://localhost:5173/chat-paper/) on a web browser.
+
+Google Chrome is the recommended web browser for running the frontend locally.
+
 To kill the frontend, send a SIGINT to the process using ctrl+c.
 
 ### Backend
@@ -17,6 +21,11 @@ To start the backend, run the following commands:
 cd backend
 uvicorn main:app --reload
 ```
+
+Then, navigate to [http://127.0.0.1:8000](http://127.0.0.1:8000) on a web browser.
+
+Google Chrome is the recommended web browser for running the backend locally.
+
 To kill the backend, send a SIGINT to the process using ctrl+c.
 
 ## Deployment of the application
