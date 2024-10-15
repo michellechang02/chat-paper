@@ -6,6 +6,7 @@ import os
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from parser import parse_bionic_reading
+import json
 
 
 load_dotenv()
@@ -86,10 +87,14 @@ async def send_chatgpt_message(message: UserMessage):
 async def get_text():
     current_directory = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_directory, "bionicreading.txt")
+    json_file_path = os.path.join(current_directory, "bionicreading.json")
     try:
         # Parse the file content
         parsed_data = parse_bionic_reading(file_path)
 
+        # Save the parsed data to a JSON file
+        with open(json_file_path, 'w') as json_file:
+            json_file.write(json.dumps(parsed_data))
 
         # Return the parsed data as a JSON response
         return JSONResponse(content=parsed_data)

@@ -2,10 +2,42 @@ import { Box, Grid, GridItem, Button, Text, Input, VStack } from '@chakra-ui/rea
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import Chatbot from './components/Chatbot';
+import Paper from './components/Paper';
 
 interface ChatMessage {
   sender: string;
   text: string;
+}
+
+interface SectionContent {
+  abstract: string;
+  intro1: string;
+  intro2: string;
+  intro3: string;
+  intro4: string;
+  section1_1: string;
+  section1_2: string;
+  section1_3: string;
+  section1_4: string;
+  section1_5: string;
+  section1_6: string;
+  section1_7: string;
+  section2_1: string;
+  section2_2: string;
+  section2_3: string;
+  section2_4: string;
+  section2_5: string;
+  section3_1: string;
+  section3_2: string;
+  section3_3: string;
+  section3_4: string;
+  section3_5: string;
+  section4_1: string;
+  section4_2: string;
+  section4_3: string;
+  section4_4: string;
+  section4_5: string;
 }
 
 
@@ -14,10 +46,12 @@ function App() {
   const [highlightedSection, setHighlightedSection] = useState<string | null>(null);
   const [userMessage, setUserMessage] = useState<string>('');
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
-
+  const [textContent, setTextContent] = useState<SectionContent | null>(null);
   const highlightSection = (sectionId: string) => {
     setHighlightedSection(sectionId);
   };
+
+  
 
   const handleSendMessage = () => {
     if (userMessage.trim()) {
@@ -36,90 +70,26 @@ function App() {
   };
 
   useEffect(() => {
-    
+    axios.get('https://chat-paper-eight.vercel.app/get-text')
+    .then(response => {
+      // Update state with the retrieved text content
+      setTextContent(response.data);
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.error("Error fetching text content:", error);
+    });
   }, [])
 
   return (
-    <Box p={4}>
+    <Box mx={5} mt={10} mb={10}>
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={6}>
         {/* Paper Section */}
-        <GridItem>
-          <Box
-            borderWidth="1px"
-            borderRadius="lg"
-            p={4}
-            height="100%"
-            overflowY="auto"
-          >
-            <Text fontSize="xl" mb={2}>No, Bionic Reading does not work</Text>
-            <Text as="caption">by Joshua Snell</Text>
-
-            {/* Abstract Section */}
-            <Box
-              bg={highlightedSection === 'abstract' ? 'yellow.200' : 'transparent'}
-              p={2}
-              mt={4}
-              borderRadius="md"
-            >
-              <Text fontSize="lg" mt={4}>Abstract</Text>
-              <Text id="abstract">
-                It has recently been claimed that presenting text with the first half of each word printed in bold...
-              </Text>
-            </Box>
-
-            {/* Introduction Section */}
-            <Box
-              bg={highlightedSection === 'intro1' ? 'yellow.200' : 'transparent'}
-              p={2}
-              mt={4}
-              borderRadius="md"
-            >
-              <Text fontSize="lg" mt={4}>1. Introduction</Text>
-              <Text id="intro1">
-                Reading is a challenging cognitive task for various reasons. Text constitutes a very homogeneous visual
-                landscape wherein no single location stands out on the basis of saliency...
-              </Text>
-            </Box>
-          </Box>
-        </GridItem>
+        <Paper textContent={textContent} highlightSection={highlightSection} highlightedSection={highlightedSection} />
 
         {/* Chatbot Section */}
-        <GridItem>
-          <Box borderWidth="1px" borderRadius="lg" p={4} height="100%" display="flex" flexDirection="column">
-            <Text fontSize="lg" mb={2}>Chatbot</Text>
-            <VStack
-              spacing={3}
-              align="stretch"
-              borderWidth="1px"
-              borderRadius="md"
-              p={3}
-              mb={4}
-              height="300px"
-              overflowY="auto"
-              bg="gray.50"
-            >
-              {/* Display chat messages */}
-              {chatMessages.map((msg, index) => (
-                <Box key={index} alignSelf={msg.sender === 'User' ? 'flex-end' : 'flex-start'}>
-                  <Text fontWeight={msg.sender === 'User' ? 'bold' : 'normal'}>{msg.sender}: {msg.text}</Text>
-                </Box>
-              ))}
-            </VStack>
-            
-            {/* Message Input and Send Button */}
-            <Box mt="auto">
-              <Input
-                placeholder="Type a message..."
-                value={userMessage}
-                onChange={(e) => setUserMessage(e.target.value)}
-                mb={2}
-              />
-              <Button onClick={handleSendMessage} colorScheme="blue" width="100%">
-                Send
-              </Button>
-            </Box>
-          </Box>
-        </GridItem>
+        <Chatbot chatMessages={chatMessages} userMessage={userMessage} setUserMessage={setUserMessage} handleSendMessage={handleSendMessage} />
+        
       </Grid>
     </Box>
   );

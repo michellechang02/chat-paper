@@ -11,6 +11,9 @@ def parse_bionic_reading(file_path):
         # Parse the file line by line
         for line in lines:
             line = line.strip()
+            # Skip lines that start with a number
+            if line and line[0].isdigit():
+                continue
 
             # Check if the line starts with a section ID (e.g., intro1, section1-1, etc.)
             if ':' in line:
@@ -25,8 +28,7 @@ def parse_bionic_reading(file_path):
             else:
                 # Continue appending content to the current section
                 content.append(line)
-
-        # Don't forget to add the last section after loop ends
+        
         if current_section:
             parsed_data[current_section] = " ".join(content).strip()
 
