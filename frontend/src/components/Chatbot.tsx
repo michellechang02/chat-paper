@@ -1,4 +1,5 @@
-import { Box, Button, GridItem, Input, Text, VStack } from '@chakra-ui/react'
+import { Box, GridItem, Input, Text, VStack, HStack, IconButton} from '@chakra-ui/react'
+import { Send } from 'react-feather';
 
 interface ChatMessage {
     sender: string;
@@ -16,12 +17,12 @@ function Chatbot({
     chatMessages,
     userMessage,
     setUserMessage,
-    handleSendMessage,
+    handleSendMessage
 }: ChatBotProps) {
   return (
     <GridItem mt={10}>
     <Box borderWidth="1px" borderRadius="lg" p={4} maxHeight="100vh" display="flex" flexDirection="column">
-      <Text fontSize="lg" mb={2}>Chatbot</Text>
+      <Text fontSize="lg" mb={2} fontWeight="bold" textAlign="center">Chatbot 🤖</Text>
       <VStack
         spacing={3}
         align="stretch"
@@ -45,15 +46,19 @@ function Chatbot({
 
       {/* Message Input and Send Button */}
       <Box mt="auto">
+        <HStack mb={2}>
         <Input
           placeholder="Type a message..."
           value={userMessage}
           onChange={(e) => setUserMessage(e.target.value)}
-          mb={2}
         />
-        <Button onClick={handleSendMessage} colorScheme="blue" width="100%">
+        <IconButton 
+        aria-label='Send Message'
+        icon={<Send />}
+        onClick={handleSendMessage} colorScheme="teal" >
           Send
-        </Button>
+        </IconButton>
+        </HStack>
       </Box>
     </Box>
   </GridItem>

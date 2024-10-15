@@ -31,58 +31,54 @@ interface SectionContent {
 }
 
 type PaperProps = {
-  highlightedSection: string | null;
+  highlightedSections: string[] | null;
   textContent: SectionContent | null;
-  highlightSection: (sectionId: string) => void;
 };
 
-function Paper({ textContent, highlightSection, highlightedSection }: PaperProps) {
+function Paper({ textContent, highlightedSections }: PaperProps) {
   return (
-    <GridItem>
+    <GridItem mt={10}>
       <Box
         borderWidth="1px"
         borderRadius="lg"
         p={4}
-        height="100%"
         maxHeight="100vh" // Ensure it doesn't exceed the viewport height
         overflowY="auto"
         bg="white" // White background for the box
       >
-        <Text fontSize="xl" fontWeight="bold" mb={2}>
+        <Text fontSize="xl" p={2} mt={4} fontWeight="bold" mb={2}>
           No, Bionic Reading does not work
         </Text>
-        <Text>by Joshua Snell</Text>
+        <Text p={2}>by Joshua Snell</Text>
 
         {/* Conditionally render sections once textContent is available */}
         {textContent && (
           <>
             {/* Abstract Section */}
             <Box
-              bg={highlightedSection === 'abstract' ? 'yellow.200' : 'transparent'}
+              bg={highlightedSections?.includes('Abstract') ? 'teal.100' : 'transparent'}
               p={2}
               mt={4}
               borderRadius="md"
-              onClick={() => highlightSection('abstract')}
             >
-              <Text fontSize="lg" mt={4}>
+              <Text fontSize="lg" mt={4} fontWeight="bold">
                 Abstract
               </Text>
-              <Text id="abstract">It has recently been claimed that presenting text with the first half of each word printed in bold (<strong>a</strong>s <strong>i</strong>s <strong>d</strong>one <strong>i</strong>n <strong>t</strong>his <strong>e</strong>xample), so-called Bionic Reading, facilitates reading. However, empirical tests of this claim are lacking, and theoretically one might expect a cost rather than a benefit. Here I tested participants' reading speed of 100 paragraphs that were presented either in 'Bionic' or in normal font. Statistical analyses revealed no significant difference in reading times between Bionic and normal reading. I conclude that Bionic Reading does not facilitate reading.</Text>
+              <Text id="abstract" mt={4}>It has recently been claimed that presenting text with the first half of each word printed in bold (<strong>a</strong>s <strong>i</strong>s <strong>d</strong>one <strong>i</strong>n <strong>t</strong>his <strong>e</strong>xample), so-called Bionic Reading, facilitates reading. However, empirical tests of this claim are lacking, and theoretically one might expect a cost rather than a benefit. Here I tested participants' reading speed of 100 paragraphs that were presented either in 'Bionic' or in normal font. Statistical analyses revealed no significant difference in reading times between Bionic and normal reading. I conclude that Bionic Reading does not facilitate reading.</Text>
 
             </Box>
 
             {/* Introduction Sections */}
-            <Text p={2} mt={4} fontSize="lg">1. Introduction</Text>
+            <Text p={2} mt={4} fontSize="lg" fontWeight="bold">1. Introduction</Text>
             {Object.keys(textContent).map((key) => {
               if (key.startsWith('intro')) {
                 return (
                   <Box
                     key={key}
-                    bg={highlightedSection === key ? 'yellow.200' : 'transparent'}
+                    bg={highlightedSections?.includes(key)? 'teal.100' : 'transparent'}
                     p={2}
                     mt={4}
                     borderRadius="md"
-                    onClick={() => highlightSection(key)}
                   >
                     <Text id={key}>{textContent[key as keyof SectionContent]}</Text>
                   </Box>
@@ -96,11 +92,65 @@ function Paper({ textContent, highlightSection, highlightedSection }: PaperProps
                 return (
                   <Box
                     key={key}
-                    bg={highlightedSection === key ? 'yellow.200' : 'transparent'}
+                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
                     p={2}
                     mt={4}
                     borderRadius="md"
-                    onClick={() => highlightSection(key)}
+                  >
+                    <Text id={key}>{textContent[key as keyof SectionContent]}</Text>
+                  </Box>
+                );
+              }
+              return null;
+            })}
+
+
+            <Text p={2} mt={4} fontSize="lg" fontWeight="bold">2. Methods</Text>
+            {Object.keys(textContent).map((key) => {
+              if (key.startsWith('section2') && key !== 'section ids') {
+                return (
+                  <Box
+                    key={key}
+                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                    p={2}
+                    mt={4}
+                    borderRadius="md"
+                  >
+                    <Text id={key}>{textContent[key as keyof SectionContent]}</Text>
+                  </Box>
+                );
+              }
+              return null;
+            })}
+
+            <Text p={2} mt={4} fontSize="lg" fontWeight="bold">3. Results</Text>
+            {Object.keys(textContent).map((key) => {
+              if (key.startsWith('section3') && key !== 'section ids') {
+                return (
+                  <Box
+                    key={key}
+                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                    p={2}
+                    mt={4}
+                    borderRadius="md"
+                  >
+                    <Text id={key}>{textContent[key as keyof SectionContent]}</Text>
+                  </Box>
+                );
+              }
+              return null;
+            })}
+
+            <Text p={2} mt={4} fontSize="lg" fontWeight="bold">4. Discussion</Text>
+            {Object.keys(textContent).map((key) => {
+              if (key.startsWith('section4') && key !== 'section ids') {
+                return (
+                  <Box
+                    key={key}
+                    bg={highlightedSections?.includes(key) ? 'teal.100' : 'transparent'}
+                    p={2}
+                    mt={4}
+                    borderRadius="md"
                   >
                     <Text id={key}>{textContent[key as keyof SectionContent]}</Text>
                   </Box>

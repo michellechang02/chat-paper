@@ -31,7 +31,9 @@ You are a helpful assistant. In addition to answering the user's message, recomm
 section2-1, section2-2, section2-3, section2-4, section2-5, section3-1, section3-2, section3-3, section3-4, section3-5, 
 section4-1, section4-2, section4-3, section4-4, section4-5, Abstract].
 
-Make the recommendations based on the user's query. Provide the user's answer as "user_answer" and the recommended 5 sections as "five_sections" in your response.
+Make the recommendations based on the user's query. Provide in string JSON format 
+the user's answer as "user_answer" and the recommended 5 sections as "five_sections"
+in your response.
 """
 
 # Define a Pydantic model to parse the incoming JSON request body
@@ -66,15 +68,14 @@ async def send_chatgpt_message(message: UserMessage):
         # Extract the response content
         output = response.choices[0].message["content"].strip()
 
-        # You can use a custom parsing strategy if needed, but for now, we assume the response
-        # will contain the user answer followed by the list of recommended sections.
-        split_output = output.split("Recommended sections:")  # Assuming GPT will separate with this text
-        user_answer = split_output[0].strip()
-        five_sections = split_output[1].strip() if len(split_output) > 1 else ""
+        print(output)
+        
+        # Extract the user's answer and the recommended 5 sections
+        output_dict = json.loads(output)
 
         return JSONResponse(content={
-            "user_answer": user_answer,
-            "five_sections": five_sections
+            "user_answer": output_dict['user_answer'],
+            "five_sections": output_dict['five_sections']
         })
 
     except Exception as e:

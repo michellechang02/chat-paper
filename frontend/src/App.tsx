@@ -43,31 +43,44 @@ interface SectionContent {
 
 
 function App() {
-  const [highlightedSection, setHighlightedSection] = useState<string | null>(null);
+  const [highlightedSections, setHighlightedSections] = useState<string[] | null>(null);
   const [userMessage, setUserMessage] = useState<string>('');
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [textContent, setTextContent] = useState<SectionContent | null>(null);
-  const highlightSection = (sectionId: string) => {
-    setHighlightedSection(sectionId);
-  };
+  const [recommendedSections, setRecommendedSections] = useState<string[]>([]);
+
 
   
 
   const handleSendMessage = () => {
     if (userMessage.trim()) {
-      const botResponse = `Bot: I see you said "${userMessage}"`; 
-      // Update chatMessages with the new user and bot messages
-      setChatMessages([
-        ...chatMessages,
-        { sender: 'User', text: userMessage },
-        { sender: 'Bot', text: botResponse }
-      ]);
+        // Post user message to the server
+        axios.post('https://chat-paper-eight.vercel.app/send-message', {
+            user_message: userMessage
+        })
+        .then(response => {
+            // Extract and handle the response from the server
+            console.log(response.data)
+            const { user_answer, five_sections } = response.data;
+            setTextContent(user_answer);
+            setRecommendedSections(five_sections);
+            setHighlightedSections(five_sections);
 
+            // Update chat messages with both user and bot responses
+            setChatMessages(prevMessages => [
+                ...prevMessages,
+                { sender: 'User', text: userMessage },
+                { sender: 'Bot', text: user_answer }
+            ]);
+        })
+        .catch(error => {
+            console.error("Error sending message to ChatGPT:", error);
+        });
 
-      // Clear the user message input
-      setUserMessage('');
+        // Clear user input
+        setUserMessage('');
     }
-  };
+};
 
   useEffect(() => {
     axios.get('https://chat-paper-eight.vercel.app/get-text')
@@ -85,10 +98,15 @@ function App() {
     <Box mx={5} mt={10} mb={10}>
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={6}>
         {/* Paper Section */}
-        <Paper textContent={textContent} highlightSection={highlightSection} highlightedSection={highlightedSection} />
+        <Paper textContent={textContent} 
+        highlightedSections={highlightedSections} />
 
         {/* Chatbot Section */}
-        <Chatbot chatMessages={chatMessages} userMessage={userMessage} setUserMessage={setUserMessage} handleSendMessage={handleSendMessage} />
+        <Chatbot chatMessages={chatMessages}
+        userMessage={userMessage}
+        setUserMessage={setUserMessage}
+        handleSendMessage={handleSendMessage}
+        />
         
       </Grid>
     </Box>
