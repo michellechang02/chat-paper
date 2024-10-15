@@ -43,7 +43,7 @@ function Paper({ textContent, highlightedSections }: PaperProps) {
     <GridItem mt={10} className="eb-garamond-custom-component">
       <Box
         borderWidth="1px"
-        borderRadius="3xl"
+        borderRadius="lg"
         p={10}
         maxHeight="100vh" // Ensure it doesn't exceed the viewport height
         overflowY="auto"
