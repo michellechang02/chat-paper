@@ -9,7 +9,7 @@ cd frontend
 npm install
 npm run dev
 ```
-To kill the frontend, sent a SIGINT to the process using ctrl+c.
+To kill the frontend, send a SIGINT to the process using ctrl+c.
 
 ### Backend
 To start the backend, run the following commands:
@@ -17,7 +17,7 @@ To start the backend, run the following commands:
 cd backend
 uvicorn main:app --reload
 ```
-To kill the backend, sent a SIGINT to the process using ctrl+c.
+To kill the backend, send a SIGINT to the process using ctrl+c.
 
 ## Deployment of the application
 
