@@ -5,7 +5,6 @@ import os
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from parser import parse_bionic_reading
-import json
 
 
 load_dotenv()
@@ -13,7 +12,6 @@ load_dotenv()
 # Initialize FastAPI app
 app = FastAPI()
 
-# Set your OpenAI API key as an environment variable or directly (not recommended for production)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Example system instructions for the OpenAI model
@@ -24,6 +22,10 @@ You are a AI that helps parse a paper.
 # Define a Pydantic model to parse the incoming JSON request body
 class UserMessage(BaseModel):
     user_message: str
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
 
 # Endpoint for sending a message to the OpenAI API
 @app.post("/send-message")
@@ -55,14 +57,10 @@ async def send_example_message(message: UserMessage):
 async def get_text():
     current_directory = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_directory, "bionicreading.txt")
-    json_file_path = os.path.join(current_directory, "bionicreading.json")
     try:
         # Parse the file content
         parsed_data = parse_bionic_reading(file_path)
 
-        # Save the parsed data to bionicreading.json in the current directory
-        with open(json_file_path, 'w') as json_file:
-            json.dump(parsed_data, json_file, indent=4)
 
         # Return the parsed data as a JSON response
         return JSONResponse(content=parsed_data)
