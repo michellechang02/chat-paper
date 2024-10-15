@@ -1,0 +1,91 @@
+{
+    "sections": [
+      "intro1",
+      "intro2",
+      "intro3",
+      "intro4",
+      "section1-1",
+      "section1-2",
+      "section1-3",
+      "section1-4",
+      "section1-5",
+      "section1-6",
+      "section1-7",
+      "section2-1",
+      "section2-2",
+      "section2-3",
+      "section2-4",
+      "section2-5",
+      "section3-1",
+      "section3-2",
+      "section3-3",
+      "section3-4",
+      "section3-5",
+      "section4-1",
+      "section4-2",
+      "section4-3",
+      "section4-4",
+      "section4-5"
+    ],
+    "abstract": {
+        "content": "It has recently been claimed that presenting text with the first half of each word printed in bold (<strong>a</strong>s <strong>i</strong>s <strong>d</strong>one <strong>i</strong>n <strong>t</strong>his <strong>e</strong>xample), so-called Bionic Reading, facilitates reading. However, empirical tests of this claim are lacking, and theoretically one might expect a cost rather than a benefit. Here I tested participants' reading speed of 100 paragraphs that were presented either in 'Bionic' or in normal font. Statistical analyses revealed no significant difference in reading times between Bionic and normal reading. I conclude that Bionic Reading does not facilitate reading."
+    },
+    "intro1": {
+      "content": "Reading is a challenging cognitive task for various reasons. Text constitutes a very homogeneous visual landscape wherein no single location stands out on the basis of saliency. Therefore, the small, careful, precise eye movements that typify reading have to be made with limited visual cues. In addition to the planning and execution of eye movements, the brain has to retrieve meaning from a myriad of small squiggly lines, typically viewing words no longer than ~200 ms (e.g., Rayner, 1998). For these reasons it may seem somewhat miraculous that reading appears effortless and automatic to most of us; and conversely, it might not be so surprising that >10 % of the population struggles when reading (e.g., Chung, 2020; Wagner et al., 2020)."
+    },
+    "intro2": {
+      "content": "Given the societal importance of reading, searching for ways to facilitate the process—either in clinical groups or in the population at large—seems a sensible endeavor. Reading researchers have conceived and tested several ideas in this regard, such as fonts that increase the discriminability among letters (e.g., Bernard, Aguilar, & Castet, 2016), or training regimes and interfaces for reading with visual impairments (e.g., Akthar, Harvey, Subramanian, Liversedge, & Walker, 2021; Chung, 2011; Snell, van Kempen, & Olivers, 2022). And naturally this endeavor is not exclusive to scientists. Currently there are several commercial parties that offer tools for facilitating reading. One example is the company Spritz, which sells an application that presents words rapidly one-at-a-time, with the promise of letting users process text faster. Other examples are companies that sell fonts for better reading in dyslexia, such as Dyslexie Font and OpenDyslexic."
+    },
+    "intro3": {
+      "content": "Bionic Reading works because it is based on the latest research in neuroscience and psychology. The font is designed to be easy to read at a glance, so you can quickly scan a text and find the most important parts. The software helps you focus on the most important parts of a text, so you can quickly see what a text is about. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "intro4": {
+      "content": "To get started with Bionic Reading, all you need is a computer or a mobile device with an internet connection. You can use Bionic Reading on any device, so you can read wherever you are. Just go to the Bionic Reading website and start reading. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section1-1": {
+      "content": "Bionic Reading is a new way of reading that helps you read faster and with better comprehension. It is based on the latest research in neuroscience and psychology. Bionic Reading is a combination of traditional reading techniques and new technologies. It uses a special font that makes it easier to read text on a screen. It also uses a special software that helps you focus on the most important parts of a text. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section1-2": {
+      "title": "How does Bionic Reading work?",
+      "content": "Bionic Reading works by using a special font that makes it easier to read text on a screen. The font is designed to be easy to read at a glance, so you can quickly scan a text and find the most important parts. Bionic Reading also uses a special software that helps you focus on the most important parts of a text. The software highlights the most important words and phrases, so you can quickly see what a text is about. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section1-3": {
+      "title": "Why does Bionic Reading work?",
+      "content": "Bionic Reading works because it is based on the latest research in neuroscience and psychology. The font is designed to be easy to read at a glance, so you can quickly scan a text and find the most important parts. The software helps you focus on the most important parts of a text, so you can quickly see what a text is about. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section1-4": {
+      "title": "Getting started with Bionic Reading",
+      "content": "To get started with Bionic Reading, all you need is a computer or a mobile device with an internet connection. You can use Bionic Reading on any device, so you can read wherever you are. Just go to the Bionic Reading website and start reading. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section1-5": {
+      "title": "Benefits of Bionic Reading",
+      "content": "Bionic Reading has many benefits. It can help you read faster and with better comprehension. It can also help you focus on the most important parts of a text. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section1-6": {
+      "title": "Who can benefit from Bionic Reading?",
+      "content": "Bionic Reading is great for anyone who wants to improve their reading skills. It is especially helpful for students, professionals, and anyone who reads a lot of text on a screen. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section1-7": {
+      "title": "Conclusion",
+      "content": "Bionic Reading is a new way of reading that helps you read faster and with better comprehension. It is based on the latest research in neuroscience and psychology. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section2-1": {
+      "title": "What is Bionic Reading?",
+      "content": "Bionic Reading is a new way of reading that helps you read faster and with better comprehension. It is based on the latest research in neuroscience and psychology. Bionic Reading is a combination of traditional reading techniques and new technologies. It uses a special font that makes it easier to read text on a screen. It also uses a special software that helps you focus on the most important parts of a text. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section2-2": {
+      "title": "How does Bionic Reading work?",
+      "content": "Bionic Reading works by using a special font that makes it easier to read text on a screen. The font is designed to be easy to read at a glance, so you can quickly scan a text and find the most important parts. Bionic Reading also uses a special software that helps you focus on the most important parts of a text. The software highlights the most important words and phrases, so you can quickly see what a text is about. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section2-3": {
+      "title": "Why does Bionic Reading work?",
+      "content": "Bionic Reading works because it is based on the latest research in neuroscience and psychology. The font is designed to be easy to read at a glance, so you can quickly scan a text and find the most important parts. The software helps you focus on the most important parts of a text, so you can quickly see what a text is about. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section2-4": {
+      "content": "To get started with Bionic Reading, all you need is a computer or a mobile device with an internet connection. You can use Bionic Reading on any device, so you can read wherever you are. Just go to the Bionic Reading website and start reading. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    },
+    "section2-5": {
+      "content": "Bionic Reading has many benefits. It can help you read faster and with better comprehension. It can also help you focus on the most important parts of a text. Bionic Reading is a great way to improve your reading skills and become a better reader."
+    }
+  }
+  
