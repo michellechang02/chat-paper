@@ -19,6 +19,14 @@ uvicorn main:app --reload
 ```
 To kill the backend, sent a SIGINT to the process using ctrl+c.
 
+## Deployment of the application
+
+### Frontend
+[https://michellechang02.github.io/chat-paper/](https://michellechang02.github.io/chat-paper/)
+
+### Backend
+[https://chat-paper-eight.vercel.app/](https://chat-paper-eight.vercel.app/)
+
 
 ## This final application includes:
 
