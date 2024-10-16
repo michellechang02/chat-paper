@@ -45,6 +45,6 @@ To kill the backend, send a SIGINT to the process using ctrl+c.
 
 - The chat responses include inline links that, when clicked, highlight parts of the text relevant to the answer
 
-- A demo of these requirements can be viewed here: Demo
+- A demo of these requirements can be viewed here: [https://youtu.be/AD3uoEM-Ivg](https://youtu.be/AD3uoEM-Ivg)
 
 
